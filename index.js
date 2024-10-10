@@ -16,10 +16,10 @@ app.get('/', async (req, res) => {
         message
     } = req.query;
 
-    if (!chatId || !message) {
+    if (!message) {
         console.log(`Requisição Recebida sem os parametros necessários`);
         return res.status(400).json({
-            error: 'chatId e message são obrigatórios'
+            error: 'Parametro message é obrigatório'
         });
     }
 
@@ -30,13 +30,13 @@ app.get('/', async (req, res) => {
                 text: message
             }
         });
-        console.log(`Menssagem envida: ${message} | Para: ${chatId}`);
+        console.log(`Menssagem envida: ${message} | Para: ${MY_CHAT}`);
         return res.status(200).json({
             success: true,
             result: response.data
         });
     } catch (error) {
-        console.log(`ERRO ao enviar msg: ${message} | Para: ${chatId}`);
+        console.log(`ERRO ao enviar msg: ${message} | Para: ${MY_CHAT}`);
         return res.status(500).json({
             success: false,
             error: error.message
