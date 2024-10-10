@@ -8,11 +8,11 @@ const PORT = process.env.PORT || 3000;
 // Substitua pelo seu token do bot do Telegram
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`;
+const MY_CHAT = process.env.MY_CHATID;
 
 // Rota para enviar mensagem via Telegram (usando GET)
 app.get('/', async (req, res) => {
     const {
-        chatId,
         message
     } = req.query;
 
@@ -26,7 +26,7 @@ app.get('/', async (req, res) => {
     try {
         const response = await axios.get(`${TELEGRAM_API_URL}/sendMessage`, {
             params: {
-                chat_id: chatId,
+                chat_id: MY_CHAT,
                 text: message
             }
         });
