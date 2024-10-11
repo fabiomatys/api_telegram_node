@@ -1,11 +1,21 @@
 {
     "version": 2,
-    "builds": [{
-        "src": "index.js",
-        "use": "@vercel/node"
-    }],
     "routes": [{
-        "src": "/",
-        "dest": "index.js"
-    }]
+            "src": "/txt",
+            "dest": "/api/send_txt.js"
+        },
+        {
+            "src": "/img",
+            "dest": "/api/send_img.js"
+        }
+    ],
+    "builds": [{
+            "src": "api/send_txt.js",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "api/send_img.js",
+            "use": "@vercel/node"
+        }
+    ]
 }
