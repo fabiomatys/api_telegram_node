@@ -23,6 +23,7 @@ app.get('/', async (req, res) => {
         console.log(`Requisição Recebida sem os parametros necessários`);
         return res.status(400).json({
             error: 'Parametro message é obrigatório',
+            contador: cont
         });
     }
 
@@ -43,7 +44,8 @@ app.get('/', async (req, res) => {
         console.log(`ERRO ao enviar msg: ${message} | Para: ${MY_CHAT}`);
         return res.status(500).json({
             success: false,
-            error: error.message
+            error: error.message,
+            contador: cont
         });
     }
 });
