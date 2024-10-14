@@ -11,7 +11,7 @@ const MY_CHAT = process.env.MY_CHATID;
 const VALID_TOKEN = process.env.MY_VALID_TOKEN;
 
 // Rota para enviar mensagem via Telegram (usando GET)
-app.get('/txt', checkToken, async (req, res) => {
+app.get('/txt', async (req, res) => {
     const {
         message,
         token

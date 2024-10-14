@@ -12,7 +12,7 @@ const VALID_TOKEN = process.env.MY_VALID_TOKEN;
 
 
 // Rota para enviar imagem via Telegram (usando GET)
-app.get('/img', checkToken, async (req, res) => {
+app.get('/img', async (req, res) => {
     const {
         token,
         image_url, // URL da imagem
