@@ -78,7 +78,7 @@ router.get('/', (req, res) => {
                 <li><code>MY_CHATID</code>: ID do chat onde as mensagens serão enviadas.</li>
                 <pre>MY_CHATID=987654321</pre>
                 
-                <li><code>TOKEN</code>: Um token personalizado para autorizar o uso da API. Neste caso, deve ser 'FMC2024'.</li>
+                <li><code>TOKEN</code>: Um token personalizado para autorizar o uso da API.</li>
                 <pre>TOKEN=AbCd123</pre>
             </ul>
 
