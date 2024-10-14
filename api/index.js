@@ -41,6 +41,7 @@ router.get('/', (req, res) => {
         </head>
         <body>
             <h1>Bem-vindo à API de envio de mensagens via Telegram!</h1>
+            <h2>Desenvolvida por fabiomatys!</h2>
             <h2>Endpoints</h2>
 
             <div class="endpoint">
