@@ -10,24 +10,20 @@ const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`;
 const MY_CHAT = process.env.MY_CHATID;
 const VALID_TOKEN = process.env.MY_VALID_TOKEN;
 
-// Middleware para verificar o token
-function checkToken(req, res, next) {
-    const token = req.query.token;
+// Rota para enviar mensagem via Telegram (usando GET)
+app.get('/txt', checkToken, async (req, res) => {
+    const {
+        message,
+        token
+    } = req.query;
 
+    // Verifica token
     if (token !== VALID_TOKEN) {
         return res.status(403).json({
             success: false,
             message: 'Acesso negado. Token inválido.'
         });
     }
-    next(); // Continua se o token for válido
-}
-
-// Rota para enviar mensagem via Telegram (usando GET)
-app.get('/txt', checkToken, async (req, res) => {
-    const {
-        message
-    } = req.query;
 
     if (!message) {
         console.log(`Requisição Recebida sem os parametros necessários`);

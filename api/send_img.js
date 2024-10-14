@@ -11,26 +11,21 @@ const MY_CHAT = process.env.MY_CHATID;
 const VALID_TOKEN = process.env.MY_VALID_TOKEN;
 
 
-// Middleware para verificar o token
-function checkToken(req, res, next) {
-    const token = req.query.token;
+// Rota para enviar imagem via Telegram (usando GET)
+app.get('/img', checkToken, async (req, res) => {
+    const {
+        token,
+        image_url, // URL da imagem
+        caption // Legenda da imagem
+    } = req.query;
 
+    // Verifica token
     if (token !== VALID_TOKEN) {
         return res.status(403).json({
             success: false,
             message: 'Acesso negado. Token inválido.'
         });
     }
-    next(); // Continua se o token for válido
-}
-
-
-// Rota para enviar imagem via Telegram (usando GET)
-app.get('/img', checkToken, async (req, res) => {
-    const {
-        image_url, // URL da imagem
-        caption // Legenda da imagem
-    } = req.query;
 
     // Verificar se os parâmetros necessários foram fornecidos
     if (!image_url || !caption) {
