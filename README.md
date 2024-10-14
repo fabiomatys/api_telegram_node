@@ -29,10 +29,11 @@ Esta alicação esta parametrizada para ser executada em abiente serverless VERC
 
 3. Configure as variaveis de ambiente na VERCEL `.env`, adicione as seguintes variáveis:
 
+```plaintext
    TELEGRAM_BOT_TOKEN=123456789:ABCDEFGHIJKLMNO_PQRSTUVWXYZ
    MY_CHATID=123456789
-   TOKEN=SEUTOKEN
-
+   TOKEN=[SEUTOKEN]
+```
 
 ### Endpoints
 
